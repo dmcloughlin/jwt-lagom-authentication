@@ -1,0 +1,106 @@
+{
+	"info": {
+		"name": "Auth Server API",
+		"_postman_id": "83cd9228-73ef-7aa8-a197-fb300c53ca10",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company\": \"Digital Cat\",\n    \"firstName\": \"Damir\",\n    \"lastName\": \"Palinic\",\n    \"email\": \"damir@palinic.com\",\n    \"username\": \"dpalinic\",\n    \"password\": \"test12345\"\n }"
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/client/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"client",
+						"registration"
+					]
+				},
+				"description": "Create a user"
+			},
+			"response": []
+		},
+		{
+			"name": "Login as User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"dpalinic\",\n\t\"password\": \"test12345\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				},
+				"description": "Log in as the user created in the last step"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a user as an admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1MTU2MTg3MzQsImlhdCI6MTUxNTYxODQzNCwiY2xpZW50SWQiOiI4MTlkMTE4OS02ZmJjLTRmYWUtYjJkOC00Y2Q2NmFjNjNjNjEiLCJ1c2VySWQiOiJhNmUwODRjNi02OWZjLTQwZTMtYjk4Ny01ODc1ODcyZjYyMzgiLCJ1c2VybmFtZSI6ImRwYWxpbmljIiwiaXNSZWZyZXNoVG9rZW4iOmZhbHNlfQ._emxQb03XU7ZgAv2UT00xhqINXfDRQ-uVyXVwpTEhVJMcOkqiHG5VGN_M8h-v9R7l3qU4CJoe3c4UwSFBfYFCA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Jelena\",\n\t\"lastName\": \"Palinic\",\n\t\"email\": \"jelena@palinic.com\",\n\t\"username\": \"jpalinic\",\n\t\"password\": \"test12345\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": "Create a user now that we have our own authentication token."
+			},
+			"response": []
+		}
+	]
+}
